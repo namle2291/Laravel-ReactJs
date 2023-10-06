@@ -3,7 +3,7 @@ import { httpRequest } from "../axios-client";
 import { useStateContext } from "../contexts/ContextProvider";
 
 export default function Login() {
-    const { setToken, setUser } = useStateContext();
+    const { setToken, setUser, toast } = useStateContext();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -20,7 +20,11 @@ export default function Login() {
                 setUser(data.user);
             })
             .catch(({ response }) => {
-                console.log(response);
+                const { errors } = response.data;
+                for (let e in errors) {
+                    toast.warn(errors[e][0]);
+                    break;
+                }
             });
     };
     return (

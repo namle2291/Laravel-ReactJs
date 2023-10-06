@@ -67,7 +67,7 @@ export default function DefaultLayout() {
                     ))}
                 </ul>
             </div>
-            <div className="col-9">
+            <div className="col-9" style={{ height: "100vh" }}>
                 <div className="row">
                     <>
                         {/* Navbar */}
@@ -114,9 +114,11 @@ export default function DefaultLayout() {
                                     </ul>
                                     {/* Left links */}
                                     <div className="d-flex align-items-center">
-                                        <button className="btn p-2 btn-link">
-                                            <PiUserCirclePlusThin />
-                                            {user && user.name}
+                                        <button className="btn p-2 btn-link d-flex align-items-center">
+                                            <PiUserCirclePlusThin className="fs-5" />
+                                            <Link to="profile">
+                                                {user && user.name}
+                                            </Link>
                                         </button>
                                         <button
                                             onClick={handleLogout}
@@ -133,7 +135,10 @@ export default function DefaultLayout() {
                         {/* Navbar */}
                     </>
                 </div>
-                <div className="row py-3 mt-3 shadow shadow-4 bg-light">
+                <div
+                    className="row py-3 mt-3"
+                    style={{ overflowY: "scroll", height: "565px" }}
+                >
                     <Outlet />
                 </div>
             </div>

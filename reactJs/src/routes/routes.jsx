@@ -8,6 +8,8 @@ import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Product from "../pages/Product";
+import Profile from "../pages/Profile";
+import AddOrUpdate from "../pages/Product/AddOrUpdate";
 
 const router = createBrowserRouter([
     {
@@ -24,12 +26,20 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
             {
+                path: "/profile",
+                element: <Profile />,
+            },
+            {
                 path: "/users",
                 element: <User />,
             },
             {
                 path: "/products",
                 element: <Product />,
+            },
+            {
+                path: "/products/:product_id",
+                element: <AddOrUpdate />,
             },
         ],
     },

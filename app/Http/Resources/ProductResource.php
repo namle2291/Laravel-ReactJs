@@ -19,7 +19,7 @@ class ProductResource extends JsonResource
             'title' => $this->title,
             'thumbnail' => $this->thumbnail,
             'description' => $this->description,
-            'price' => number_format($this->price),
+            'price' => $this->price,
             'created_at' => $this->created_at->format('d/m/Y H:i:s'),
             'category' => [
                 'id' => $this->category->id,

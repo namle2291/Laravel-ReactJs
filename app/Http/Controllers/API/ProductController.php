@@ -54,38 +54,36 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        return Product::findOrFail($id);
+        return new ProductResource(Product::find($id));
     }
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProductRequest $request, string $id)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
-        $validator = Validator::make($data, [
-            'title' => 'required',
-            'price' => 'required|numeric|min:1',
-            'description' => 'required',
-            'category_id' => 'required'
-        ], [], []);
+        $product = new ProductResource(Product::find($id));
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors()->all(), 400);
+        $file = $request->file('thumbnail');
+        if ($file) {
+            $filename = $file->hashName();
+            $file->storeAs('/public/products', $filename);
+            $data['thumbnail'] = env('APP_URL_STORE') . "/products" . '/' . $filename;
+        } else {
+            $data['thumbnail'] = $product->thumbnail;
         }
 
-        $product = Product::find($id);
         $product->update($data);
 
-        return response()->json(['data' => $product, 'message' => 'Update Success!'], 200);
+        return response()->json(compact('product'));
     }
 
     /**

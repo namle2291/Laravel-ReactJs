@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\CategoryResource;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,8 +15,7 @@ class Category extends Model
 
     public function getAll()
     {
-        $data = Category::all();
-        return response()->json($data, 200);
+        return CategoryResource::collection(Category::orderByDesc('id')->get());
     }
 
     public function store($data)
@@ -34,6 +34,10 @@ class Category extends Model
     }
     public function deleteRecord($id)
     {
-      return Category::destroy($id);
+        return Category::destroy($id);
+    }
+    public function product()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
     }
 }
