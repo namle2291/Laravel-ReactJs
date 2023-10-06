@@ -1,0 +1,65 @@
+.login_box {
+    padding: 50px 0;
+    border-radius: 5px;
+}
+
+.login_box .login_form .login_control {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--header_color);
+    margin: 25px;
+    position: relative;
+}
+
+.login_box .login_form .login_control label {
+    width: 50px;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+    background: var(--header_color);
+    color: #fff;
+}
+
+.login_box .login_form .login_control .show-pass {
+    position: absolute;
+    right: 10px;
+    color: #555;
+    cursor: pointer;
+}
+
+.login_box .login_form .login_control .login_input {
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 13px;
+    caret-color: var(--header_color);
+}
+
+.login_box .login_form .login_submit {
+    margin: 0 25px;
+    width: auto;
+    text-align: center;
+}
+
+.login_box .login_form .login_submit button {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 13px;
+    border: 1px solid var(--header_color);
+    transition: .3s ease-in-out;
+    background: #fff;
+}
+
+.login_box .login_form .login_submit button:hover {
+    background-color: var(--header_color);
+    color: #fff;
+}
+
+.login_heading {
+    font-family: monospace;
+}

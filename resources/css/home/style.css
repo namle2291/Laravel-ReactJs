@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+:root {
+    --header_color: #4F709C;
+    --header_height: 90px;
+    --top_height: 32px;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Tilt Neon', cursive;
+    background: url('/assets/bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Btn back to top */
+.back_to_top {
+    position: fixed;
+    right: 15px;
+    bottom: -40px;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    border-radius: 50%;
+    font-size: 30px;
+    color: var(--header_color);
+}
+
+/* Top */
+.top {
+    height: var(--top_height);
+    background: var(--header_color);
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: var(--top_height);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--header_height);
+    display: flex;
+    align-items: center;
+    background: white;
+    box-shadow: 0 2px 5px #9999;
+    transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+header .search_form .search_box {
+    border: 1px solid var(--header_color);
+    display: flex;
+    justify-content: space-between;
+}
+
+header .search_form .search_box {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+header .search_form .search_box .search_input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+header .search_form .search_box .search_btn {
+    width: 10%;
+    border: none;
+    background-color: var(--header_color);
+    color: white;
+}
+
+/* Navigation */
+.navigation {
+    margin-top: calc(var(--header_height) + 10px);
+}
+
+/* Category */
+.category .list-group .list-group-item:hover {
+    background: #eee;
+    color: white;
+}
+
+/* Navbar */
+.nav_bar .nav_bar_list .nav_bar_item {
+    border-bottom: 2px solid white;
+}
+
+.nav_bar .nav_bar_list .nav_bar_item:hover {
+    border-bottom: 2px solid var(--header_color);
+}
+
+/* Content */
+.content .product_category {
+    position: relative;
+    text-align: center;
+    color: var(--header_color);
+}
+
+.content .product_category::before {
+    content: "";
+    width: 40%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    transform: translateY(-50%);
+    background: var(--header_color);
+}
+
+.content .product_category::after {
+    content: "";
+    width: 40%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    transform: translateY(-50%);
+    background: var(--header_color);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #ddd;
+    background: #fff;
+}
